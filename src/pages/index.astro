@@ -1,6 +1,10 @@
 ---
 import "../styles/global.css";
 
+const downloadUrl =
+  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.1/PortDeck-0.1.0-beta.1-macos-arm64.zip";
+const sourceUrl = "https://github.com/JessePeplinski/portdeck";
+
 const dashboardProjects = [
   {
     name: "Acme Web",
@@ -146,6 +150,29 @@ const roadmap = [
             </div>
             <h1 id="hero-title">Your AI-native local runtime dashboard.</h1>
             <p class="subheadline">See every local server, Docker container, port, and worktree from one Mac menu bar.</p>
+            <div class="hero-cta">
+              <div class="hero-actions">
+                <a
+                  class="hero-button primary"
+                  href={downloadUrl}
+                  aria-label="Download PortDeck v0.1.0-beta.1 for Apple Silicon Macs"
+                >
+                  <span aria-hidden="true">↓</span>
+                  Download
+                </a>
+                <a
+                  class="hero-button secondary"
+                  href={sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View PortDeck source on GitHub in a new tab"
+                >
+                  View source
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <p class="release-note">v0.1.0-beta.1 · macOS 14+ · Apple Silicon</p>
+            </div>
           </div>
 
           <section class="dashboard" id="portdeck-hero-dashboard" aria-label="PortDeck menu bar dashboard mock">

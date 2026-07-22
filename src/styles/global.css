@@ -267,10 +267,133 @@ h1 {
   margin-top: 28px;
 }
 
+.install-command {
+  padding: 14px;
+  border: 1px solid rgba(120, 169, 255, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(120, 169, 255, 0.07), transparent 48%),
+    rgba(7, 12, 18, 0.82);
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.install-command-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.install-command-title {
+  margin: 0;
+  color: var(--text);
+  font: 700 13px/1.2 var(--mono);
+}
+
+.install-command-badge {
+  padding: 4px 7px;
+  border: 1px solid rgba(116, 210, 103, 0.26);
+  border-radius: 999px;
+  background: rgba(116, 210, 103, 0.08);
+  color: var(--green);
+  font: 700 9px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.install-command-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  margin-top: 11px;
+  padding: 9px 9px 9px 12px;
+  border: 1px solid rgba(180, 194, 210, 0.16);
+  border-radius: 7px;
+  background: rgba(3, 6, 10, 0.82);
+}
+
+.install-command-row > code {
+  min-width: 0;
+  color: #bcd2ff;
+  font: 12px/1.55 var(--mono);
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.copy-command-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 76px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(207, 220, 236, 0.22);
+  border-radius: 6px;
+  background: rgba(20, 28, 38, 0.86);
+  color: var(--muted);
+  cursor: pointer;
+  font: 700 11px/1 var(--mono);
+  touch-action: manipulation;
+  transition:
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 140ms ease,
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.copy-command-icon {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .copy-command-button:hover {
+    border-color: rgba(153, 185, 255, 0.52);
+    background: rgba(29, 41, 55, 0.96);
+    color: var(--text);
+  }
+}
+
+.copy-command-button:active {
+  transform: scale(0.97);
+}
+
+.copy-command-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.copy-command-button[data-copied="true"] {
+  border-color: rgba(116, 210, 103, 0.46);
+  background: rgba(116, 210, 103, 0.1);
+  color: var(--green);
+}
+
+.install-command-note {
+  margin: 10px 0 0;
+  color: var(--dim);
+  font: 11px/1.5 var(--mono);
+}
+
+.install-command-note code {
+  color: var(--muted);
+  font: inherit;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 14px;
 }
 
 .hero-button {
@@ -333,11 +456,13 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-button {
+  .hero-button,
+  .copy-command-button {
     transition: border-color 160ms ease, background-color 160ms ease;
   }
 
-  .hero-button:active {
+  .hero-button:active,
+  .copy-command-button:active {
     transform: none;
   }
 }
@@ -918,6 +1043,21 @@ h2 {
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
+  }
+
+  .install-command {
+    padding: 12px;
+  }
+
+  .install-command-row {
+    gap: 8px;
+    padding-left: 10px;
+  }
+
+  .copy-command-button {
+    min-width: 68px;
+    padding-right: 8px;
+    padding-left: 8px;
   }
 
   .popover {

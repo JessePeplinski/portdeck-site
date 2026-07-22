@@ -4,6 +4,7 @@ import "../styles/global.css";
 const downloadUrl =
   "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.2/PortDeck-0.1.0-beta.2-macos-arm64.zip";
 const sourceUrl = "https://github.com/JessePeplinski/portdeck";
+const installCommand = "brew install --cask JessePeplinski/tap/portdeck@beta";
 
 const dashboardProjects = [
   {
@@ -151,6 +152,30 @@ const roadmap = [
             <h1 id="hero-title">Your AI-native local runtime dashboard.</h1>
             <p class="subheadline">See every local server, Docker container, port, and worktree from one Mac menu bar.</p>
             <div class="hero-cta">
+              <div class="install-command" aria-labelledby="homebrew-install-title">
+                <div class="install-command-header">
+                  <p class="install-command-title" id="homebrew-install-title">Install with Homebrew</p>
+                  <span class="install-command-badge">Recommended</span>
+                </div>
+                <div class="install-command-row">
+                  <code translate="no">{installCommand}</code>
+                  <button
+                    class="copy-command-button"
+                    type="button"
+                    data-copy-command={installCommand}
+                    aria-label="Copy the Homebrew install command"
+                  >
+                    <svg class="copy-command-icon" viewBox="0 0 20 20" aria-hidden="true">
+                      <rect x="7" y="7" width="9" height="9" rx="2"></rect>
+                      <path d="M5 13H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span data-copy-label aria-live="polite">Copy</span>
+                  </button>
+                </div>
+                <p class="install-command-note">
+                  Installs the signed and notarized beta. Future releases stay available through <code translate="no">brew upgrade</code>.
+                </p>
+              </div>
               <div class="hero-actions">
                 <a
                   class="hero-button primary"
@@ -158,7 +183,7 @@ const roadmap = [
                   aria-label="Download PortDeck v0.1.0-beta.2 for Apple Silicon Macs"
                 >
                   <span aria-hidden="true">↓</span>
-                  Download
+                  Download ZIP
                 </a>
                 <a
                   class="hero-button secondary"
@@ -324,6 +349,14 @@ const roadmap = [
       const trigger = document.querySelector<HTMLButtonElement>(".portdeck-menu-trigger");
       const dashboard = document.querySelector<HTMLElement>("#portdeck-hero-dashboard");
       const localTime = document.querySelector<HTMLTimeElement>("[data-local-time]");
+      const copyCommandButton = document.querySelector<HTMLButtonElement>("[data-copy-command]");
+      const copyCommandLabel = copyCommandButton?.querySelector<HTMLElement>("[data-copy-label]");
+      let copyResetTimer: number | undefined;
+
+      async function copyInstallCommand(command: string) {
+        if (!navigator.clipboard) throw new Error("Clipboard access is unavailable.");
+        await navigator.clipboard.writeText(command);
+      }
 
       function formatMenuBarTime(date: Date) {
         const parts = new Intl.DateTimeFormat("en-US", {
@@ -385,6 +418,30 @@ const roadmap = [
       trigger?.addEventListener("click", (event) => {
         event.stopPropagation();
         setMenuOpen(hero?.dataset.menuOpen !== "true");
+      });
+
+      copyCommandButton?.addEventListener("click", async () => {
+        const command = copyCommandButton.dataset.copyCommand;
+        if (!command || !copyCommandLabel) return;
+
+        window.clearTimeout(copyResetTimer);
+
+        try {
+          await copyInstallCommand(command);
+          copyCommandButton.dataset.copied = "true";
+          copyCommandLabel.textContent = "Copied";
+          copyCommandButton.setAttribute("aria-label", "Homebrew install command copied");
+        } catch {
+          copyCommandButton.dataset.copied = "false";
+          copyCommandLabel.textContent = "Copy failed";
+          copyCommandButton.setAttribute("aria-label", "Copy failed. Select the Homebrew install command manually");
+        }
+
+        copyResetTimer = window.setTimeout(() => {
+          copyCommandButton.dataset.copied = "false";
+          copyCommandLabel.textContent = "Copy";
+          copyCommandButton.setAttribute("aria-label", "Copy the Homebrew install command");
+        }, 2200);
       });
 
       document.addEventListener("click", (event) => {

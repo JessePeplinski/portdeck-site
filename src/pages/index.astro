@@ -49,58 +49,18 @@ const shows = [
   "Git repo root, branch, and worktree",
   "Docker containers with published ports",
   "Project → worktree → service grouping",
-  "Open, copy, reveal, kill, and refresh actions"
+  "Open, copy, reveal, stop, and refresh actions"
 ];
 
-const proFeatures = [
-  "Vercel deployment status",
-  "Convex status",
-  "GitHub Actions status",
-  "Cloudflare status",
-  "Local vs deployed health",
-  "Notifications",
-  "Project profiles",
-  "Team/shared environments later"
-];
-
-const roadmap = [
-  {
-    version: "V0.1",
-    items: [
-      "Detect listening localhost ports.",
-      "Identify PID, process name, command, and cwd when possible.",
-      "Infer Git repo root, branch, and worktree from cwd.",
-      "Detect Docker containers with published ports.",
-      "Group services by project → worktree → service.",
-      "Add actions: open URL, copy URL, reveal folder, kill process, refresh.",
-      "Provide portdeck status --json."
-    ]
-  },
-  {
-    version: "V0.2",
-    items: [
-      "Better worktree awareness.",
-      "Persistent local service labels.",
-      "Project grouping and naming.",
-      "Basic config in ~/.portdeck."
-    ]
-  },
-  {
-    version: "V0.3",
-    items: [
-      "portdeck run.",
-      "Agent/session awareness for Codex, Claude, and Cursor.",
-      "Register services intentionally instead of only discovering them."
-    ]
-  },
-  {
-    version: "V0.4",
-    items: [
-      "Saved service labels.",
-      "Custom project grouping.",
-      "More runtime health diagnostics."
-    ]
-  }
+const providers = [
+  "Vercel",
+  "Convex",
+  "GitHub Actions",
+  "Supabase",
+  "Cloudflare",
+  "Railway",
+  "Fly.io",
+  "Netlify"
 ];
 
 ---
@@ -112,9 +72,9 @@ const roadmap = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="PortDeck is an AI-native local runtime dashboard for Mac. See local servers, Docker containers, ports, and worktrees from one menu bar."
+      content="PortDeck is a free, open-source Mac menu-bar command center for local services, saved projects, and read-only deployment health."
     />
-    <title>PortDeck | AI-native local runtime dashboard</title>
+    <title>PortDeck | Your command center for the apps you build</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -124,7 +84,7 @@ const roadmap = [
         <header class="mac-menubar" aria-label="Mac menu bar mock">
           <div class="menu-left">
             <strong>PortDeck</strong>
-            <a href="#roadmap">Roadmap</a>
+            <a href="#download">Download</a>
           </div>
           <div class="menu-right">
             <button
@@ -149,8 +109,10 @@ const roadmap = [
                 <p class="domain">portdeck.app</p>
               </div>
             </div>
-            <h1 id="hero-title">Your AI-native local runtime dashboard.</h1>
-            <p class="subheadline">See every local server, Docker container, port, and worktree from one Mac menu bar.</p>
+            <h1 id="hero-title">Your command center for the apps you build.</h1>
+            <p class="subheadline">
+              See what is running locally, control saved projects, and check deployment health from one Mac menu bar.
+            </p>
             <div class="hero-cta">
               <div class="install-command" aria-labelledby="homebrew-install-title">
                 <div class="install-command-header">
@@ -247,7 +209,7 @@ const roadmap = [
                 <span><b aria-hidden="true">↗</b> Open</span>
                 <span><b aria-hidden="true">□</b> Copy</span>
                 <span><b aria-hidden="true">▱</b> Reveal</span>
-                <span><b aria-hidden="true">⌫</b> Kill</span>
+                <span><b aria-hidden="true">■</b> Stop</span>
                 <span><b aria-hidden="true">↻</b> Refresh</span>
               </div>
               <div class="footer-row">
@@ -260,20 +222,20 @@ const roadmap = [
       </section>
 
       <section class="split-section" id="problem">
-        <div class="section-icon warning" aria-hidden="true">!</div>
-        <h2>The problem</h2>
+        <div class="section-icon warning" aria-hidden="true">⌁</div>
+        <h2>Your apps do not live in one terminal.</h2>
         <div class="section-body">
           <p>
-            Local development used to be one developer, one branch, one server. Now it is one developer, multiple AI
-            agents, multiple worktrees, Docker containers, Convex, Vercel previews, and a bunch of local ports.
+            A single app can span local processes, ports, worktrees, Docker containers, and deployments across several
+            providers. Answering “what is running?” should not mean retracing every terminal and dashboard.
           </p>
-          <p>PortDeck is the control tower for that chaos.</p>
+          <p>PortDeck keeps the useful state together and one click away in your Mac menu bar.</p>
         </div>
       </section>
 
       <section class="split-section" id="shows">
         <div class="section-icon list" aria-hidden="true">≡</div>
-        <h2>What PortDeck shows</h2>
+        <h2>See what is running.</h2>
         <ul class="check-list">
           {shows.map((item) => <li>{item}</li>)}
         </ul>
@@ -281,68 +243,61 @@ const roadmap = [
 
       <section class="split-section">
         <div class="section-icon bolt" aria-hidden="true">↯</div>
-        <h2>Why AI-native builders need this</h2>
+        <h2>Keep projects ready.</h2>
         <div class="section-body">
           <p>
-            AI agents make it cheap to spin up parallel work. They also make it easy to lose track of which terminal,
-            worktree, container, and port belongs to the thing you are testing.
+            Save a running project once and it stays available even after it stops. Start it again, stop it, open it,
+            or switch its confirmed port without rebuilding the command from memory.
           </p>
-          <p>PortDeck keeps the local runtime map visible before stale processes turn into guesswork.</p>
+          <p>PortDeck only controls projects you explicitly save and verifies local ownership before it acts.</p>
         </div>
       </section>
 
       <section class="split-section">
-        <div class="section-icon open" aria-hidden="true">◎</div>
-        <h2>Free/open-source local tool</h2>
+        <div class="section-icon open" aria-hidden="true">◉</div>
+        <h2>Check deployments without changing them.</h2>
         <div class="section-body">
           <p>
-            The local dashboard stays free and open source: port discovery, Docker discovery, worktree grouping,
-            quick actions, labels, and the CLI.
+            See production and deployment status across {providers.join(", ")}. PortDeck uses your existing official
+            CLI sessions and keeps every provider view read-only.
           </p>
-          <p>No auth. No payments. No cloud sync. No telemetry required.</p>
+          <p>It cannot deploy, restart, configure, scale, or delete your remote resources.</p>
         </div>
       </section>
 
-      <section class="split-section">
-        <div class="section-icon star" aria-hidden="true">☆</div>
-        <h2>Future Pro features</h2>
-        <ul class="check-list pro">
-          {proFeatures.map((item) => <li>{item}</li>)}
-        </ul>
+      <section class="split-section" id="open-source">
+        <div class="section-icon star" aria-hidden="true">◎</div>
+        <h2>Built because I needed it.</h2>
+        <div class="section-body">
+          <p>
+            I built PortDeck to stop losing time figuring out which app owned a port, which project was still running,
+            or whether a deployment had finished. I use it every day while I build.
+          </p>
+          <p>
+            No account. No subscription. PortDeck is a free, open-source macOS utility. If it saves you time too, that
+            is the whole point.
+          </p>
+        </div>
       </section>
 
-      <section class="roadmap-section" id="roadmap">
-        <div class="roadmap-intro">
-          <div class="section-icon map" aria-hidden="true">◇</div>
-          <h2>Public roadmap</h2>
+      <section class="download-section" id="download" aria-labelledby="download-title">
+        <div>
+          <h2 id="download-title">Try the Apple Silicon beta.</h2>
+          <p>
+            Install with Homebrew or download the signed and notarized beta for Apple Silicon Macs running macOS 14 or
+            newer. Prefer to inspect it first? The source, architecture, and release checks are all public.
+          </p>
         </div>
-        <div class="roadmap-list">
-          {
-            roadmap.map((release) => (
-              <article class="roadmap-item">
-                <h3>{release.version}</h3>
-                <ul>
-                  {release.items.map((item) => (
-                    <li>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))
-          }
-          <article class="roadmap-item future">
-            <h3>Future Pro</h3>
-            <p>
-              Vercel, Convex, GitHub Actions, Cloudflare, local vs deployed health, notifications, project profiles,
-              and team/shared environments later.
-            </p>
-          </article>
+        <div class="download-actions">
+          <a class="hero-button primary" href={downloadUrl}>Download ZIP</a>
+          <a class="hero-button secondary" href={sourceUrl} target="_blank" rel="noreferrer">View on GitHub</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>PortDeck</span>
-      <span>Open-source core. Future Pro.</span>
+      <span>Free and open source. Built for macOS.</span>
     </footer>
     <script>
       const hero = document.querySelector<HTMLElement>(".hero-screen");

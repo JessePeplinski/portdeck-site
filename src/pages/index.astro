@@ -2,7 +2,7 @@
 import "../styles/global.css";
 
 const downloadUrl =
-  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.3/PortDeck-0.1.0-beta.3-macos-arm64.zip";
+  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.4/PortDeck-0.1.0-beta.4-macos-arm64.zip";
 const sourceUrl = "https://github.com/JessePeplinski/portdeck";
 const sourceApiUrl = "https://api.github.com/repos/JessePeplinski/portdeck";
 const sourceStarCount = 0;
@@ -77,7 +77,7 @@ const providers = [
       content="PortDeck is a free, open-source Mac menu-bar command center for local services, saved projects, and read-only deployment health."
     />
     <title>PortDeck | Your command center for the apps you build</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/portdeck-mark.svg" type="image/svg+xml" />
   </head>
   <body data-source-api-url={sourceApiUrl}>
     <main>
@@ -88,8 +88,8 @@ const providers = [
             <strong>PortDeck</strong>
             <a
               href={downloadUrl}
-              download="PortDeck-0.1.0-beta.3-macos-arm64.zip"
-              aria-label="Download PortDeck v0.1.0-beta.3 for Apple Silicon Macs"
+              download="PortDeck-0.1.0-beta.4-macos-arm64.zip"
+              aria-label="Download PortDeck v0.1.0-beta.4 for Apple Silicon Macs"
             >
               Download
             </a>
@@ -122,7 +122,7 @@ const providers = [
               aria-controls="portdeck-hero-dashboard"
               aria-expanded="true"
             >
-              <span aria-hidden="true">›_</span>
+              <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
             </button>
             <time class="local-time" datetime="" data-local-time>Sat Jun 6 1:11 PM</time>
           </div>
@@ -131,7 +131,7 @@ const providers = [
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="product-lockup">
-              <span class="app-icon" aria-hidden="true"><span>›_</span></span>
+              <img class="app-icon" src="/portdeck-mark.svg" alt="" aria-hidden="true" />
               <div>
                 <p class="product-name">PortDeck</p>
                 <p class="domain">portdeck.app</p>
@@ -170,7 +170,7 @@ const providers = [
                 <a
                   class="hero-button primary"
                   href={downloadUrl}
-                  aria-label="Download PortDeck v0.1.0-beta.3 for Apple Silicon Macs"
+                  aria-label="Download PortDeck v0.1.0-beta.4 for Apple Silicon Macs"
                 >
                   <span aria-hidden="true">↓</span>
                   Download ZIP
@@ -196,7 +196,7 @@ const providers = [
                   </span>
                 </a>
               </div>
-              <p class="release-note">v0.1.0-beta.3 · macOS 14+ · Apple Silicon</p>
+              <p class="release-note">v0.1.0-beta.4 · macOS 14+ · Apple Silicon</p>
             </div>
           </div>
 
@@ -353,7 +353,10 @@ const providers = [
     </main>
 
     <footer class="site-footer">
-      <span>PortDeck</span>
+      <span class="footer-brand">
+        <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
+        PortDeck
+      </span>
       <span>Free and open source. Built for macOS.</span>
     </footer>
     <script>

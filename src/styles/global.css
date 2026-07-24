@@ -173,6 +173,12 @@ main {
   color: #f3f5f7;
 }
 
+.portdeck-menu-trigger img {
+  display: block;
+  width: 25px;
+  height: auto;
+}
+
 .portdeck-menu-trigger {
   border: 1px solid rgba(153, 185, 255, 0.64);
   border-radius: 6px;
@@ -233,23 +239,10 @@ main {
 }
 
 .app-icon {
-  display: grid;
-  width: 58px;
-  height: 58px;
-  place-items: center;
-  border: 1px solid rgba(220, 232, 246, 0.28);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent),
-    #0e151d;
-  box-shadow:
-    0 16px 38px rgba(0, 0, 0, 0.42),
-    0 1px 0 rgba(255, 255, 255, 0.12) inset;
-  font: 700 30px/1 var(--mono);
-}
-
-.app-icon span {
-  transform: translateY(-1px);
+  display: block;
+  width: 72px;
+  height: auto;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.4));
 }
 
 .product-name,
@@ -884,6 +877,18 @@ h2 {
   font: 13px/1.3 var(--mono);
 }
 
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.footer-brand img {
+  display: block;
+  width: 30px;
+  height: auto;
+}
+
 .site-footer span:first-child {
   color: var(--text);
   font-family: var(--sans);
@@ -988,9 +993,7 @@ h2 {
   }
 
   .app-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 25px;
+    width: 64px;
   }
 
   .product-name {

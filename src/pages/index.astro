@@ -2,7 +2,9 @@
 import "../styles/global.css";
 
 const downloadUrl =
-  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.4/PortDeck-0.1.0-beta.4-macos-arm64.zip";
+  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.5/PortDeck-0.1.0-beta.5-macos-arm64.dmg";
+const zipDownloadUrl =
+  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.5/PortDeck-0.1.0-beta.5-macos-arm64.zip";
 const sourceUrl = "https://github.com/JessePeplinski/portdeck";
 const sourceApiUrl = "https://api.github.com/repos/JessePeplinski/portdeck";
 const sourceStarCount = 0;
@@ -88,8 +90,8 @@ const providers = [
             <strong>PortDeck</strong>
             <a
               href={downloadUrl}
-              download="PortDeck-0.1.0-beta.4-macos-arm64.zip"
-              aria-label="Download PortDeck v0.1.0-beta.4 for Apple Silicon Macs"
+              download="PortDeck-0.1.0-beta.5-macos-arm64.dmg"
+              aria-label="Download PortDeck v0.1.0-beta.5 DMG for Apple Silicon Macs"
             >
               Download
             </a>
@@ -170,10 +172,10 @@ const providers = [
                 <a
                   class="hero-button primary"
                   href={downloadUrl}
-                  aria-label="Download PortDeck v0.1.0-beta.4 for Apple Silicon Macs"
+                  aria-label="Download PortDeck v0.1.0-beta.5 DMG for Apple Silicon Macs"
                 >
                   <span aria-hidden="true">↓</span>
-                  Download ZIP
+                  Download DMG
                 </a>
                 <a
                   class="hero-button secondary source-link"
@@ -196,7 +198,7 @@ const providers = [
                   </span>
                 </a>
               </div>
-              <p class="release-note">v0.1.0-beta.4 · macOS 14+ · Apple Silicon</p>
+              <p class="release-note">v0.1.0-beta.5 · macOS 14+ · Apple Silicon</p>
             </div>
           </div>
 
@@ -323,11 +325,19 @@ const providers = [
           <h2 id="download-title">Try the Apple Silicon beta.</h2>
           <p>
             Install with Homebrew or download the signed and notarized beta for Apple Silicon Macs running macOS 14 or
-            newer. Prefer to inspect it first? The source, architecture, and release checks are all public.
+            newer. Open the DMG and drag PortDeck into Applications. Prefer to inspect it first? The source,
+            architecture, and release checks are all public.
           </p>
         </div>
         <div class="download-actions">
-          <a class="hero-button primary" href={downloadUrl}>Download ZIP</a>
+          <a class="hero-button primary" href={downloadUrl}>Download DMG</a>
+          <a
+            class="hero-button secondary"
+            href={zipDownloadUrl}
+            aria-label="Download PortDeck v0.1.0-beta.5 ZIP for Apple Silicon Macs"
+          >
+            Download ZIP
+          </a>
           <a
             class="hero-button secondary source-link"
             href={sourceUrl}

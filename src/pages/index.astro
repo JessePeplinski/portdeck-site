@@ -10,43 +10,6 @@ const sourceApiUrl = "https://api.github.com/repos/JessePeplinski/portdeck";
 const sourceStarCount = 0;
 const installCommand = "brew install --cask JessePeplinski/tap/portdeck@beta";
 
-const dashboardProjects = [
-  {
-    name: "Acme Web",
-    status: "running",
-    worktrees: [
-      {
-        name: "main",
-        services: [
-          { name: "web", port: ":3000", source: "localhost", status: "running", tone: "green" },
-          { name: "convex", port: "local dev", source: "convex", status: "running", tone: "green" },
-          { name: "postgres", port: ":5432", source: "docker", status: "running", tone: "green" }
-        ]
-      }
-    ]
-  },
-  {
-    name: "PortDeck",
-    status: "active",
-    worktrees: [
-      {
-        name: "feature/status-json",
-        services: [{ name: "cli", port: "-", source: "portdeck status --json", status: "active", tone: "blue" }]
-      }
-    ]
-  },
-  {
-    name: "Unknown",
-    status: "stale",
-    worktrees: [
-      {
-        name: "unowned",
-        services: [{ name: "node", port: ":5173", source: "PID 12345", status: "stale", tone: "amber" }]
-      }
-    ]
-  }
-];
-
 const shows = [
   "Localhost servers and listening ports",
   "PID, process name, command, and cwd when available",
@@ -83,7 +46,7 @@ const providers = [
   </head>
   <body data-source-api-url={sourceApiUrl}>
     <main>
-      <section class="hero-screen" aria-labelledby="hero-title" data-menu-open="true">
+      <section class="hero-screen" aria-labelledby="hero-title">
         <div class="screen-texture" aria-hidden="true"></div>
         <header class="mac-menubar" aria-label="Mac menu bar mock">
           <div class="menu-left">
@@ -117,15 +80,9 @@ const providers = [
             </a>
           </div>
           <div class="menu-right">
-            <button
-              class="portdeck-menu-trigger"
-              type="button"
-              aria-label="Toggle PortDeck dashboard"
-              aria-controls="portdeck-hero-dashboard"
-              aria-expanded="true"
-            >
+            <span class="portdeck-menubar-mark" aria-hidden="true">
               <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
-            </button>
+            </span>
             <time class="local-time" datetime="" data-local-time>Sat Jun 6 1:11 PM</time>
           </div>
         </header>
@@ -202,62 +159,25 @@ const providers = [
             </div>
           </div>
 
-          <section class="dashboard" id="portdeck-hero-dashboard" aria-label="PortDeck menu bar dashboard mock">
-            <div class="popover">
-              <div class="search-row">
-                <span aria-hidden="true">⌕</span>
-                <span>Filter services...</span>
-                <kbd>⌘ K</kbd>
-              </div>
-              <div class="table-head">
-                <span>Repo / worktree / service</span>
-                <span>Port</span>
-                <span>Status</span>
-              </div>
-              <div class="service-tree">
-                {
-                  dashboardProjects.map((project) => (
-                    <div class="project-block">
-                      <div class="project-row">
-                        <span class="folder" aria-hidden="true"></span>
-                        <strong>{project.name}</strong>
-                        <span class={`project-signal ${project.status}`} aria-hidden="true"></span>
-                        <span class={`status ${project.status}`}>{project.status}</span>
-                      </div>
-                      {project.worktrees.map((worktree) => (
-                        <div class="worktree-block">
-                          <div class="worktree-row">
-                            <span aria-hidden="true">↳</span>
-                            <span>{worktree.name}</span>
-                          </div>
-                          {worktree.services.map((service) => (
-                            <div class="service-row">
-                              <span class={`service-glyph ${service.tone}`} aria-hidden="true"></span>
-                              <span class="service-name">{service.name}</span>
-                              <span class="service-source">{service.source}</span>
-                              <span class="port">{service.port}</span>
-                              <span class={`state ${service.tone}`}>{service.status}</span>
-                            </div>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  ))
-                }
-              </div>
-              <div class="action-row" aria-label="Available dashboard actions">
-                <span><b aria-hidden="true">↗</b> Open</span>
-                <span><b aria-hidden="true">□</b> Copy</span>
-                <span><b aria-hidden="true">▱</b> Reveal</span>
-                <span><b aria-hidden="true">■</b> Stop</span>
-                <span><b aria-hidden="true">↻</b> Refresh</span>
-              </div>
-              <div class="footer-row">
-                <span>5 services</span>
-                <span>Updated just now · local only</span>
-              </div>
-            </div>
-          </section>
+          <figure class="product-demo">
+            <video
+              class="product-demo-video"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              poster="/portdeck-menu-demo-poster.png"
+              aria-describedby="product-demo-caption"
+              data-product-demo
+            >
+              <source src="/portdeck-menu-demo.mp4" type="video/mp4" />
+              <source src="/portdeck-menu-demo.webm" type="video/webm" />
+            </video>
+            <figcaption id="product-demo-caption">
+              Open PortDeck from the menu bar. Click away and it is gone.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -370,10 +290,8 @@ const providers = [
       <span>Free and open source. Built for macOS.</span>
     </footer>
     <script>
-      const hero = document.querySelector<HTMLElement>(".hero-screen");
-      const trigger = document.querySelector<HTMLButtonElement>(".portdeck-menu-trigger");
-      const dashboard = document.querySelector<HTMLElement>("#portdeck-hero-dashboard");
       const localTime = document.querySelector<HTMLTimeElement>("[data-local-time]");
+      const productDemo = document.querySelector<HTMLVideoElement>("[data-product-demo]");
       const copyCommandButton = document.querySelector<HTMLButtonElement>("[data-copy-command]");
       const copyCommandLabel = copyCommandButton?.querySelector<HTMLElement>("[data-copy-label]");
       const sourceLinks = document.querySelectorAll<HTMLAnchorElement>("[data-source-link]");
@@ -406,37 +324,6 @@ const providers = [
         const now = new Date();
         localTime.textContent = formatMenuBarTime(now);
         localTime.setAttribute("datetime", now.toISOString());
-        updateMenuAlignment();
-      }
-
-      function updateMenuAlignment() {
-        if (!trigger || !dashboard) return;
-
-        dashboard.style.setProperty("--menu-popover-x", "0px");
-
-        const triggerRect = trigger.getBoundingClientRect();
-        const dashboardRect = dashboard.getBoundingClientRect();
-        const viewportPadding = 12;
-        let shift = triggerRect.right - dashboardRect.right;
-        const nextLeft = dashboardRect.left + shift;
-        const nextRight = dashboardRect.right + shift;
-
-        if (nextLeft < viewportPadding) {
-          shift += viewportPadding - nextLeft;
-        } else if (nextRight > window.innerWidth - viewportPadding) {
-          shift -= nextRight - (window.innerWidth - viewportPadding);
-        }
-
-        dashboard.style.setProperty("--menu-popover-x", `${Math.round(shift)}px`);
-      }
-
-      function setMenuOpen(isOpen: boolean) {
-        if (!hero || !trigger) return;
-
-        updateMenuAlignment();
-        hero.dataset.menuOpen = String(isOpen);
-        trigger.setAttribute("aria-expanded", String(isOpen));
-        dashboard?.setAttribute("aria-hidden", String(!isOpen));
       }
 
       async function updateSourceStarCount() {
@@ -482,12 +369,27 @@ const providers = [
       updateLocalTime();
       void updateSourceStarCount();
       window.setInterval(updateLocalTime, 30000);
-      window.addEventListener("resize", updateMenuAlignment);
 
-      trigger?.addEventListener("click", (event) => {
-        event.stopPropagation();
-        setMenuOpen(hero?.dataset.menuOpen !== "true");
-      });
+      if (productDemo) {
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const syncDemoPlayback = () => {
+          if (reducedMotion.matches) {
+            productDemo.pause();
+            if (productDemo.readyState >= HTMLMediaElement.HAVE_METADATA) {
+              productDemo.currentTime = 3;
+            }
+            return;
+          }
+
+          void productDemo.play().catch(() => {
+            // The poster remains visible when browser autoplay policy blocks playback.
+          });
+        };
+
+        productDemo.addEventListener("loadedmetadata", syncDemoPlayback);
+        reducedMotion.addEventListener("change", syncDemoPlayback);
+        syncDemoPlayback();
+      }
 
       copyCommandButton?.addEventListener("click", async () => {
         const command = copyCommandButton.dataset.copyCommand;
@@ -511,17 +413,6 @@ const providers = [
           copyCommandLabel.textContent = "Copy";
           copyCommandButton.setAttribute("aria-label", "Copy the Homebrew install command");
         }, 2200);
-      });
-
-      document.addEventListener("click", (event) => {
-        if (!hero || hero.dataset.menuOpen !== "true") return;
-        if (!(event.target instanceof Node)) return;
-        if (trigger?.contains(event.target) || dashboard?.contains(event.target)) return;
-        setMenuOpen(false);
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") setMenuOpen(false);
       });
     </script>
   </body>

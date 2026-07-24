@@ -466,7 +466,7 @@ h1 {
 }
 
 .product-demo {
-  width: min(640px, calc(100vw - 48px));
+  width: min(580px, calc(100vw - 48px));
   min-width: 0;
   margin: 0;
   justify-self: end;

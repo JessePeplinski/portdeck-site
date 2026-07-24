@@ -82,7 +82,7 @@ const providers = [
             <button
               class="portdeck-menu-trigger"
               type="button"
-              aria-label="Hide PortDeck demo"
+              aria-label="Hide PortDeck preview"
               aria-controls="portdeck-product-demo"
               aria-expanded="true"
               data-demo-toggle
@@ -162,19 +162,15 @@ const providers = [
           </div>
 
           <div class="product-demo" id="portdeck-product-demo" data-product-demo-panel>
-            <video
-              class="product-demo-video"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="metadata"
-              poster="/portdeck-menu-demo-poster.png"
-              data-product-demo
-            >
-              <source src="/portdeck-menu-demo.mp4" type="video/mp4" />
-              <source src="/portdeck-menu-demo.webm" type="video/webm" />
-            </video>
+            <img
+              class="product-demo-image"
+              src="/portdeck-app-preview.webp"
+              width="1075"
+              height="1463"
+              alt="PortDeck showing local projects, services, ports, branches, and controls"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </section>
@@ -313,7 +309,6 @@ const providers = [
       const demoToggle = document.querySelector<HTMLButtonElement>("[data-demo-toggle]");
       const productDemoPanel = document.querySelector<HTMLElement>("[data-product-demo-panel]");
       const localTime = document.querySelector<HTMLTimeElement>("[data-local-time]");
-      const productDemo = document.querySelector<HTMLVideoElement>("[data-product-demo]");
       const copyCommandButton = document.querySelector<HTMLButtonElement>("[data-copy-command]");
       const copyCommandLabel = copyCommandButton?.querySelector<HTMLElement>("[data-copy-label]");
       const sourceLinks = document.querySelectorAll<HTMLAnchorElement>("[data-source-link]");
@@ -392,50 +387,17 @@ const providers = [
       void updateSourceStarCount();
       window.setInterval(updateLocalTime, 30000);
 
-      if (productDemo) {
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const syncDemoPlayback = () => {
-          if (hero?.dataset.demoOpen === "false") {
-            productDemo.pause();
-            return;
-          }
+      demoToggle?.addEventListener("click", () => {
+        if (!hero) return;
 
-          if (reducedMotion.matches) {
-            productDemo.pause();
-            if (productDemo.readyState >= HTMLMediaElement.HAVE_METADATA) {
-              productDemo.currentTime = 3;
-            }
-            return;
-          }
+        const isOpen = hero.dataset.demoOpen !== "false";
+        const nextOpen = !isOpen;
 
-          void productDemo.play().catch(() => {
-            // The poster remains visible when browser autoplay policy blocks playback.
-          });
-        };
-
-        productDemo.addEventListener("loadedmetadata", syncDemoPlayback);
-        reducedMotion.addEventListener("change", syncDemoPlayback);
-
-        demoToggle?.addEventListener("click", () => {
-          if (!hero) return;
-
-          const isOpen = hero.dataset.demoOpen !== "false";
-          const nextOpen = !isOpen;
-
-          hero.dataset.demoOpen = String(nextOpen);
-          demoToggle.setAttribute("aria-expanded", String(nextOpen));
-          demoToggle.setAttribute("aria-label", nextOpen ? "Hide PortDeck demo" : "Show PortDeck demo");
-          productDemoPanel?.setAttribute("aria-hidden", String(!nextOpen));
-
-          if (nextOpen && productDemo.readyState >= HTMLMediaElement.HAVE_METADATA && !reducedMotion.matches) {
-            productDemo.currentTime = 0;
-          }
-
-          syncDemoPlayback();
-        });
-
-        syncDemoPlayback();
-      }
+        hero.dataset.demoOpen = String(nextOpen);
+        demoToggle.setAttribute("aria-expanded", String(nextOpen));
+        demoToggle.setAttribute("aria-label", nextOpen ? "Hide PortDeck preview" : "Show PortDeck preview");
+        productDemoPanel?.setAttribute("aria-hidden", String(!nextOpen));
+      });
 
       copyCommandButton?.addEventListener("click", async () => {
         const command = copyCommandButton.dataset.copyCommand;

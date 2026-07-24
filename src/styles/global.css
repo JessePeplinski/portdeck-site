@@ -69,7 +69,6 @@ main {
 .hero-screen {
   position: relative;
   min-height: min(842px, calc(100vh - 42px));
-  border-bottom: 1px solid var(--line);
   background:
     linear-gradient(115deg, rgba(18, 38, 56, 0.56), transparent 42%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 22%),
@@ -95,7 +94,6 @@ main {
   justify-content: space-between;
   height: 36px;
   padding: 0 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
   background: rgba(7, 11, 16, 0.72);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   backdrop-filter: blur(18px);
@@ -304,25 +302,12 @@ h1 {
 .install-command-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 .install-command-title {
   margin: 0;
   color: var(--text);
   font: 700 13px/1.2 var(--mono);
-}
-
-.install-command-badge {
-  padding: 4px 7px;
-  border: 1px solid rgba(116, 210, 103, 0.26);
-  border-radius: 999px;
-  background: rgba(116, 210, 103, 0.08);
-  color: var(--green);
-  font: 700 9px/1 var(--mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .install-command-row {
@@ -398,17 +383,6 @@ h1 {
   border-color: rgba(116, 210, 103, 0.46);
   background: rgba(116, 210, 103, 0.1);
   color: var(--green);
-}
-
-.install-command-note {
-  margin: 10px 0 0;
-  color: var(--dim);
-  font: 11px/1.5 var(--mono);
-}
-
-.install-command-note code {
-  color: var(--muted);
-  font: inherit;
 }
 
 .hero-actions {
@@ -544,56 +518,14 @@ h1 {
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
 }
 
-.product-demo figcaption {
-  margin-top: 12px;
-  color: var(--dim);
-  font: 12px/1.45 var(--mono);
-  text-align: right;
-}
-
 .split-section,
 .download-section {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  border-bottom: 1px solid var(--line);
 }
 
 .split-section {
-  display: grid;
-  grid-template-columns: 72px minmax(190px, 260px) minmax(0, 1fr);
-  gap: 28px;
   padding: 52px 0;
-}
-
-.section-icon {
-  display: grid;
-  width: 52px;
-  height: 52px;
-  place-items: center;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
-    rgba(11, 18, 27, 0.78);
-  font-family: var(--mono);
-  font-size: 24px;
-}
-
-.warning {
-  color: var(--red);
-}
-
-.list,
-.open {
-  color: var(--green);
-}
-
-.bolt {
-  color: var(--blue);
-}
-
-.star {
-  color: var(--amber);
 }
 
 h2 {
@@ -601,6 +533,10 @@ h2 {
   font-size: 29px;
   line-height: 1.17;
   font-weight: 740;
+}
+
+.split-section h2 {
+  margin: 0 0 18px;
 }
 
 .section-body {
@@ -617,7 +553,7 @@ h2 {
   display: grid;
   gap: 14px;
   max-width: 760px;
-  margin: 4px 0 0;
+  margin: 0;
   padding: 0;
   color: var(--muted);
   font: 15px/1.35 var(--mono);
@@ -637,10 +573,6 @@ h2 {
 }
 
 .download-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 48px;
-  align-items: end;
   padding: 72px 0;
 }
 
@@ -661,12 +593,15 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-top: 24px;
 }
 
 .site-footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
   padding: 28px 0 34px;
@@ -690,6 +625,30 @@ h2 {
   color: var(--text);
   font-family: var(--sans);
   font-weight: 680;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  justify-content: flex-end;
+}
+
+.social-links a {
+  color: var(--muted);
+  transition: color 140ms ease;
+}
+
+.social-links a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .social-links a:hover {
+    color: var(--text);
+  }
 }
 
 @media (max-width: 1000px) {
@@ -747,9 +706,12 @@ h2 {
     width: min(700px, calc(100% - 32px));
   }
 
-  .section-icon {
-    width: 46px;
-    height: 46px;
+  .site-footer {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .site-footer > span:nth-child(2) {
+    display: none;
   }
 
   .download-section {
@@ -844,10 +806,6 @@ h2 {
     padding-left: 8px;
   }
 
-  .product-demo figcaption {
-    text-align: left;
-  }
-
   .split-section,
   .download-section {
     width: min(440px, calc(100% - 24px));
@@ -859,9 +817,13 @@ h2 {
   }
 
   .site-footer {
-    flex-direction: column;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 14px;
     width: min(440px, calc(100% - 24px));
+  }
+
+  .social-links {
+    justify-content: flex-start;
   }
 }
 

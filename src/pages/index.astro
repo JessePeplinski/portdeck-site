@@ -3,8 +3,6 @@ import "../styles/global.css";
 
 const downloadUrl =
   "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.5/PortDeck-0.1.0-beta.5-macos-arm64.dmg";
-const zipDownloadUrl =
-  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.5/PortDeck-0.1.0-beta.5-macos-arm64.zip";
 const sourceUrl = "https://github.com/JessePeplinski/portdeck";
 const sourceApiUrl = "https://api.github.com/repos/JessePeplinski/portdeck";
 const sourceStarCount = 0;
@@ -111,7 +109,6 @@ const providers = [
               <div class="install-command" aria-labelledby="homebrew-install-title">
                 <div class="install-command-header">
                   <p class="install-command-title" id="homebrew-install-title">Install with Homebrew</p>
-                  <span class="install-command-badge">Recommended</span>
                 </div>
                 <div class="install-command-row">
                   <code translate="no">{installCommand}</code>
@@ -128,9 +125,6 @@ const providers = [
                     <span data-copy-label aria-live="polite">Copy</span>
                   </button>
                 </div>
-                <p class="install-command-note">
-                  Installs the signed and notarized beta. Future releases stay available through <code translate="no">brew upgrade</code>.
-                </p>
               </div>
               <div class="hero-actions">
                 <a
@@ -166,7 +160,7 @@ const providers = [
             </div>
           </div>
 
-          <figure class="product-demo" id="portdeck-product-demo" data-product-demo-panel>
+          <div class="product-demo" id="portdeck-product-demo" data-product-demo-panel>
             <video
               class="product-demo-video"
               autoplay
@@ -175,21 +169,16 @@ const providers = [
               playsinline
               preload="metadata"
               poster="/portdeck-menu-demo-poster.png"
-              aria-describedby="product-demo-caption"
               data-product-demo
             >
               <source src="/portdeck-menu-demo.mp4" type="video/mp4" />
               <source src="/portdeck-menu-demo.webm" type="video/webm" />
             </video>
-            <figcaption id="product-demo-caption">
-              Open PortDeck from the menu bar. Click away and it is gone.
-            </figcaption>
-          </figure>
+          </div>
         </div>
       </section>
 
       <section class="split-section" id="problem">
-        <div class="section-icon warning" aria-hidden="true">⌁</div>
         <h2>Your apps do not live in one terminal.</h2>
         <div class="section-body">
           <p>
@@ -201,7 +190,6 @@ const providers = [
       </section>
 
       <section class="split-section" id="shows">
-        <div class="section-icon list" aria-hidden="true">≡</div>
         <h2>See what is running.</h2>
         <ul class="check-list">
           {shows.map((item) => <li>{item}</li>)}
@@ -209,7 +197,6 @@ const providers = [
       </section>
 
       <section class="split-section">
-        <div class="section-icon bolt" aria-hidden="true">↯</div>
         <h2>Keep projects ready.</h2>
         <div class="section-body">
           <p>
@@ -221,7 +208,6 @@ const providers = [
       </section>
 
       <section class="split-section">
-        <div class="section-icon open" aria-hidden="true">◉</div>
         <h2>Check deployments without changing them.</h2>
         <div class="section-body">
           <p>
@@ -233,7 +219,6 @@ const providers = [
       </section>
 
       <section class="split-section" id="open-source">
-        <div class="section-icon star" aria-hidden="true">◎</div>
         <h2>Built because I needed it.</h2>
         <div class="section-body">
           <p>
@@ -258,13 +243,6 @@ const providers = [
         </div>
         <div class="download-actions">
           <a class="hero-button primary" href={downloadUrl}>Download DMG</a>
-          <a
-            class="hero-button secondary"
-            href={zipDownloadUrl}
-            aria-label="Download PortDeck v0.1.0-beta.5 ZIP for Apple Silicon Macs"
-          >
-            Download ZIP
-          </a>
           <a
             class="hero-button secondary source-link"
             href={sourceUrl}
@@ -295,6 +273,16 @@ const providers = [
         PortDeck
       </span>
       <span>Free and open source. Built for macOS.</span>
+      <nav class="social-links" aria-label="Social links">
+        <a href="https://x.com/jessepeplinski" target="_blank" rel="noreferrer">X</a>
+        <a href="https://jessepeplinski.com/" target="_blank" rel="noreferrer">Website</a>
+        <a href="https://www.twitch.tv/peptechdev" target="_blank" rel="noreferrer">Twitch</a>
+        <a href="https://instagram.com/peptechdev" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://tiktok.com/@peptechdev" target="_blank" rel="noreferrer">TikTok</a>
+        <a href="https://github.com/jessePeplinski" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/jessepeplinski" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://www.youtube.com/@PepTechDev" target="_blank" rel="noreferrer">YouTube</a>
+      </nav>
     </footer>
     <script>
       const hero = document.querySelector<HTMLElement>(".hero-screen");

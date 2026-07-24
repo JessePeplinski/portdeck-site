@@ -1,6 +1,6 @@
 # PortDeck Site
 
-This repository contains the static marketing site for [PortDeck](https://github.com/JessePeplinski/portdeck), a native macOS menu-bar command center for local development services, saved projects, and read-only deployment-provider health.
+This repository contains the static marketing site for [PortDeck](https://github.com/JessePeplinski/portdeck), a native macOS menu-bar command center for local development services and read-only deployment-provider health.
 
 The CLI/helper, Mac app, product documentation, release scripts, tags, and downloadable assets live in the main [`portdeck`](https://github.com/JessePeplinski/portdeck) repository.
 

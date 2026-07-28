@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import SocialIcon from "../components/SocialIcon.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 const downloadUrl =
   "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.12/PortDeck-0.1.0-beta.12-macos-arm64.dmg";
@@ -126,8 +126,10 @@ const structuredData = {
       <section class="hero-screen" aria-labelledby="hero-title">
         <div class="screen-texture" aria-hidden="true"></div>
         <header class="mac-menubar" aria-label="Mac menu bar mock">
-          <div class="menu-left">
-            <strong>PortDeck</strong>
+          <nav class="menu-left" aria-label="Primary navigation">
+            <a class="menu-brand" href="/">PortDeck</a>
+            <a class="menu-home" href="/" aria-current="page">Home</a>
+            <a href="/changelog/">Changelog</a>
             <a
               href={downloadUrl}
               download="PortDeck-0.1.0-beta.12-macos-arm64.dmg"
@@ -136,7 +138,7 @@ const structuredData = {
               Download
             </a>
             <a
-              class="source-link"
+              class="source-link menu-source"
               href={sourceUrl}
               target="_blank"
               rel="noreferrer"
@@ -155,7 +157,7 @@ const structuredData = {
                 <span data-source-star-count aria-hidden="true">{sourceStarCount}</span>
               </span>
             </a>
-          </div>
+          </nav>
           <div class="menu-right">
             <span
               class="portdeck-menu-trigger"
@@ -315,46 +317,7 @@ const structuredData = {
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span class="footer-brand">
-        <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
-        PortDeck
-      </span>
-      <span class="footer-credit">
-        Built by <a href="https://jessepeplinski.com/" target="_blank" rel="noreferrer">Jesse Peplinski</a>
-      </span>
-      <nav class="social-links" aria-label="Social links">
-        <a href="https://x.com/jessepeplinski" target="_blank" rel="noreferrer" aria-label="X">
-          <SocialIcon name="x" />
-        </a>
-        <a href="https://jessepeplinski.com/" target="_blank" rel="noreferrer" aria-label="Website">
-          <SocialIcon name="website" />
-        </a>
-        <a href="https://www.twitch.tv/peptechdev" target="_blank" rel="noreferrer" aria-label="Twitch">
-          <SocialIcon name="twitch" />
-        </a>
-        <a href="https://instagram.com/peptechdev" target="_blank" rel="noreferrer" aria-label="Instagram">
-          <SocialIcon name="instagram" />
-        </a>
-        <a href="https://tiktok.com/@peptechdev" target="_blank" rel="noreferrer" aria-label="TikTok">
-          <SocialIcon name="tiktok" />
-        </a>
-        <a href="https://github.com/jessePeplinski" target="_blank" rel="noreferrer" aria-label="GitHub">
-          <SocialIcon name="github" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/jessepeplinski"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="LinkedIn"
-        >
-          <SocialIcon name="linkedin" />
-        </a>
-        <a href="https://www.youtube.com/@PepTechDev" target="_blank" rel="noreferrer" aria-label="YouTube">
-          <SocialIcon name="youtube" />
-        </a>
-      </nav>
-    </footer>
+    <SiteFooter currentPage="home" />
     <script>
       const localTime = document.querySelector<HTMLTimeElement>("[data-local-time]");
       const copyCommandButton = document.querySelector<HTMLButtonElement>("[data-copy-command]");

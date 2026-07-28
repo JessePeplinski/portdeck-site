@@ -1,0 +1,143 @@
+---
+import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import { betaReleases } from "../data/betaReleases";
+
+const downloadUrl =
+  "https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.12/PortDeck-0.1.0-beta.12-macos-arm64.dmg";
+const sourceUrl = "https://github.com/JessePeplinski/portdeck";
+const siteUrl = "https://portdeck.app/";
+const canonicalUrl = `${siteUrl}changelog/`;
+const pageTitle = "PortDeck Changelog — Every Beta Release";
+const pageDescription =
+  "Every PortDeck beta release, from the first public build through the latest signed and notarized macOS release.";
+const socialImageUrl = `${siteUrl}portdeck-social-icon-single-server.png`;
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "America/New_York"
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{pageTitle}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PortDeck" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1254" />
+    <meta property="og:image:height" content="1254" />
+    <meta property="og:image:alt" content="PortDeck single-server icon on a dark navy background" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content="PortDeck single-server icon on a dark navy background" />
+
+    <meta name="theme-color" content="#071426" />
+    <link rel="icon" href="/portdeck-mark.svg" type="image/svg+xml" />
+  </head>
+  <body class="changelog-page">
+    <header class="mac-menubar site-menubar" aria-label="Site navigation">
+      <nav class="menu-left" aria-label="Primary navigation">
+        <a class="menu-brand" href="/">PortDeck</a>
+        <a class="menu-home" href="/">Home</a>
+        <a href="/changelog/" aria-current="page">Changelog</a>
+        <a href={downloadUrl}>Download</a>
+        <a class="menu-source" href={sourceUrl} target="_blank" rel="noreferrer">View source</a>
+      </nav>
+      <div class="menu-right">
+        <span class="portdeck-menu-trigger" aria-hidden="true">
+          <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
+        </span>
+        <time class="local-time" datetime="" data-local-time>Tue Jul 28 1:11 PM</time>
+      </div>
+    </header>
+
+    <main>
+      <div class="changelog-texture" aria-hidden="true"></div>
+      <div class="changelog-shell">
+        <header class="changelog-intro">
+          <div class="product-lockup changelog-lockup">
+            <img class="app-icon" src="/portdeck-mark.svg" alt="" aria-hidden="true" />
+            <p class="product-name">PortDeck</p>
+          </div>
+          <h1>Changelog</h1>
+          <p>Every PortDeck beta, from the first public build forward.</p>
+        </header>
+
+        <section class="release-ledger" aria-label="PortDeck beta release history">
+          {
+            betaReleases.map((release) => (
+              <article class="release-entry" id={release.version}>
+                <time class="release-date" datetime={release.publishedAt}>
+                  {dateFormatter.format(new Date(release.publishedAt))}
+                </time>
+                <div class="release-content">
+                  <h2>{release.version}</h2>
+                  <p class="release-summary">{release.summary}</p>
+                  <ul>
+                    {release.changes.map((change) => <li>{change}</li>)}
+                  </ul>
+                  <a class="release-link" href={release.releaseUrl} target="_blank" rel="noreferrer">
+                    View release
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"></path>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </section>
+      </div>
+    </main>
+
+    <SiteFooter currentPage="changelog" />
+
+    <script>
+      const localTime = document.querySelector<HTMLTimeElement>("[data-local-time]");
+
+      function formatMenuBarTime(date: Date) {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true
+        }).formatToParts(date);
+
+        const pick = (type: string) => parts.find((part) => part.type === type)?.value ?? "";
+        return `${pick("weekday")} ${pick("month")} ${pick("day")} ${pick("hour")}:${pick("minute")} ${pick("dayPeriod")}`;
+      }
+
+      function updateLocalTime() {
+        if (!localTime) return;
+
+        const now = new Date();
+        localTime.textContent = formatMenuBarTime(now);
+        localTime.setAttribute("datetime", now.toISOString());
+      }
+
+      updateLocalTime();
+      window.setInterval(updateLocalTime, 30000);
+    </script>
+  </body>
+</html>

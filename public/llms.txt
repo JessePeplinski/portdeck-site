@@ -4,12 +4,13 @@
 
 PortDeck helps developers answer what is running locally without retracing terminals and dashboards. It shows localhost services and ports, process details, Git repository roots, branches and worktrees, Docker containers with published ports, and safe local actions such as open, copy, reveal, stop and refresh.
 
-PortDeck also shows read-only production and deployment status for Vercel, Convex, GitHub Actions, Supabase, Cloudflare, Railway, Fly.io and Netlify. It uses existing sessions from official provider CLIs and cannot deploy, restart, configure, scale or delete remote resources.
+PortDeck also shows read-only production and deployment status for Vercel, Convex, GitHub Actions, Supabase, Cloudflare, Railway, Fly.io, Netlify and Hostinger. It uses existing sessions from official provider CLIs and cannot deploy, restart, configure, scale or delete remote resources.
 
-The current beta supports Apple Silicon Macs running macOS 14 or newer. It requires no account or subscription and is available under the MIT License.
+The current release is v0.1.0-beta.12 for Apple Silicon Macs running macOS 14 or newer. It requires no account or subscription and is available under the MIT License.
 
 ## Canonical links
 
 - Product: https://portdeck.app/
+- Changelog: https://portdeck.app/changelog/
 - Source and documentation: https://github.com/JessePeplinski/portdeck
-- Current release: https://github.com/JessePeplinski/portdeck/releases/tag/v0.1.0-beta.6
+- Current release: https://github.com/JessePeplinski/portdeck/releases/tag/v0.1.0-beta.12

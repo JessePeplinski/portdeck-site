@@ -1,0 +1,56 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+
+interface Props {
+  currentPage: "home" | "changelog";
+}
+
+const { currentPage } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="footer-identity">
+    <a class="footer-brand" href="/" aria-label="PortDeck home">
+      <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
+      PortDeck
+    </a>
+    <span class="footer-credit">
+      Built by <a href="https://jessepeplinski.com/" target="_blank" rel="noreferrer">Jesse Peplinski</a>
+    </span>
+  </div>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <a href="/" aria-current={currentPage === "home" ? "page" : undefined}>Home</a>
+    <a href="/changelog/" aria-current={currentPage === "changelog" ? "page" : undefined}>Changelog</a>
+  </nav>
+  <nav class="social-links" aria-label="Social links">
+    <a href="https://x.com/jessepeplinski" target="_blank" rel="noreferrer" aria-label="X">
+      <SocialIcon name="x" />
+    </a>
+    <a href="https://jessepeplinski.com/" target="_blank" rel="noreferrer" aria-label="Website">
+      <SocialIcon name="website" />
+    </a>
+    <a href="https://www.twitch.tv/peptechdev" target="_blank" rel="noreferrer" aria-label="Twitch">
+      <SocialIcon name="twitch" />
+    </a>
+    <a href="https://instagram.com/peptechdev" target="_blank" rel="noreferrer" aria-label="Instagram">
+      <SocialIcon name="instagram" />
+    </a>
+    <a href="https://tiktok.com/@peptechdev" target="_blank" rel="noreferrer" aria-label="TikTok">
+      <SocialIcon name="tiktok" />
+    </a>
+    <a href="https://github.com/jessePeplinski" target="_blank" rel="noreferrer" aria-label="GitHub">
+      <SocialIcon name="github" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/jessepeplinski"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="LinkedIn"
+    >
+      <SocialIcon name="linkedin" />
+    </a>
+    <a href="https://www.youtube.com/@PepTechDev" target="_blank" rel="noreferrer" aria-label="YouTube">
+      <SocialIcon name="youtube" />
+    </a>
+  </nav>
+</footer>

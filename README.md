@@ -26,7 +26,7 @@ Generated output is written to `dist/` and is not committed.
 
 ## Sparkle beta appcast
 
-The application release workflow generates a signed `appcast-beta.xml` from the final verified GitHub ZIP. Publish that file at:
+The application release workflow generates a signed `appcast-beta.xml` from the final verified, Developer ID-signed and notarized GitHub DMG. Publish that file at:
 
 `https://portdeck.vercel.app/appcast-beta.xml`
 

@@ -122,53 +122,52 @@ const structuredData = {
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline></script>
   </head>
   <body data-source-api-url={sourceApiUrl}>
+    <header class="mac-menubar site-menubar" aria-label="Site navigation">
+      <nav class="menu-left" aria-label="Primary navigation">
+        <a class="menu-brand" href="/">PortDeck</a>
+        <a class="menu-home" href="/" aria-current="page">Home</a>
+        <a href="/changelog/">Changelog</a>
+        <a
+          href={downloadUrl}
+          download="PortDeck-0.1.0-beta.12-macos-arm64.dmg"
+          aria-label="Download PortDeck v0.1.0-beta.12 DMG for Apple Silicon Macs"
+        >
+          Download
+        </a>
+        <a
+          class="source-link menu-source"
+          href={sourceUrl}
+          target="_blank"
+          rel="noreferrer"
+          data-source-link
+          aria-label={`View PortDeck source on GitHub, ${sourceStarCount} stars, in a new tab`}
+        >
+          <span>View source</span>
+          <span
+            class="source-stars"
+            data-source-star-badge
+            aria-label={`${sourceStarCount} GitHub stars`}
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="m8 1.5 1.9 3.85 4.25.62-3.07 3 0.72 4.23L8 11.2 4.2 13.2l.72-4.23-3.07-3 4.25-.62L8 1.5Z"></path>
+            </svg>
+            <span data-source-star-count aria-hidden="true">{sourceStarCount}</span>
+          </span>
+        </a>
+      </nav>
+      <div class="menu-right">
+        <span
+          class="portdeck-menu-trigger"
+          aria-hidden="true"
+        >
+          <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
+        </span>
+        <time class="local-time" datetime="" data-local-time>Sat Jun 6 1:11 PM</time>
+      </div>
+    </header>
     <main>
       <section class="hero-screen" aria-labelledby="hero-title">
         <div class="screen-texture" aria-hidden="true"></div>
-        <header class="mac-menubar" aria-label="Mac menu bar mock">
-          <nav class="menu-left" aria-label="Primary navigation">
-            <a class="menu-brand" href="/">PortDeck</a>
-            <a class="menu-home" href="/" aria-current="page">Home</a>
-            <a href="/changelog/">Changelog</a>
-            <a
-              href={downloadUrl}
-              download="PortDeck-0.1.0-beta.12-macos-arm64.dmg"
-              aria-label="Download PortDeck v0.1.0-beta.12 DMG for Apple Silicon Macs"
-            >
-              Download
-            </a>
-            <a
-              class="source-link menu-source"
-              href={sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              data-source-link
-              aria-label={`View PortDeck source on GitHub, ${sourceStarCount} stars, in a new tab`}
-            >
-              <span>View source</span>
-              <span
-                class="source-stars"
-                data-source-star-badge
-                aria-label={`${sourceStarCount} GitHub stars`}
-              >
-                <svg viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="m8 1.5 1.9 3.85 4.25.62-3.07 3 0.72 4.23L8 11.2 4.2 13.2l.72-4.23-3.07-3 4.25-.62L8 1.5Z"></path>
-                </svg>
-                <span data-source-star-count aria-hidden="true">{sourceStarCount}</span>
-              </span>
-            </a>
-          </nav>
-          <div class="menu-right">
-            <span
-              class="portdeck-menu-trigger"
-              aria-hidden="true"
-            >
-              <img src="/portdeck-mark.svg" alt="" aria-hidden="true" />
-            </span>
-            <time class="local-time" datetime="" data-local-time>Sat Jun 6 1:11 PM</time>
-          </div>
-        </header>
-
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="product-lockup">

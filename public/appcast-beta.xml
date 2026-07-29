@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>PortDeck</title>
+        <item>
+            <title>PortDeck 0.1.0-beta.13</title>
+            <pubDate>Wed, 29 Jul 2026 12:54:22 -0400</pubDate>
+            <link>https://portdeck.vercel.app/</link>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-beta.13</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.13
+
+- Adds signed in-app update checks powered by Sparkle 2.9.4.
+- Checks the PortDeck beta feed once per day without automatically installing updates.
+- Shows a quiet **New version available** action in the menu-bar window.
+- Adds automatic-update preferences and **Check for Updates…** to Settings.
+- Keeps system profiling disabled and verifies both the signed feed and update archive before extraction.
+
+Development builds remain disconnected from the production update feed.
+]]></description>
+            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.13/PortDeck-0.1.0-beta.13-macos-arm64.dmg" length="36939140" type="application/octet-stream" sparkle:edSignature="O/KP7keLsj0FPhTXnVRU8d+qc134vDapzULW6ecQ4Es1XyAbJvbGZvtJgChorTH91vplOq2BzDnXcj5RnjAkDA=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: RbZTC/ygUQqrjV/Zyibn3bxMyL7HR9ArXRoKZmhBooUS95tqSU7EYYIrT002FpHMImPLPiuuceIVrEWaV+72CA==
+length: 1817
+-->

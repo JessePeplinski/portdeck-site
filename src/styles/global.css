@@ -68,7 +68,6 @@ main {
 
 .hero-screen {
   position: relative;
-  min-height: min(842px, calc(100vh - 42px));
   background:
     linear-gradient(115deg, rgba(18, 38, 56, 0.56), transparent 42%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 22%),
@@ -487,6 +486,10 @@ h1 {
 
 .split-section {
   padding: 52px 0;
+}
+
+#problem {
+  padding-top: 0;
 }
 
 h2 {

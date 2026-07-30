@@ -11,6 +11,60 @@ const releaseUrl = (version: string) =>
 
 export const betaReleases: BetaRelease[] = [
   {
+    version: "v0.1.0-beta.17",
+    publishedAt: "2026-07-30T20:10:10Z",
+    summary: "Made provider customization clearer and added Local session durations.",
+    changes: [
+      "Added direct drag-to-reorder controls while keeping Local fixed at the front.",
+      "Stabilized provider reordering feedback so rows follow pointer movement predictably.",
+      "Showed how long each active Local development session has been running."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.17")
+  },
+  {
+    version: "v0.1.0-beta.16",
+    publishedAt: "2026-07-30T17:15:31Z",
+    summary: "Expanded keyboard navigation and tightened dense layouts.",
+    changes: [
+      "Added keyboard navigation across provider tabs, including number-key shortcuts.",
+      "Added an in-app shortcut reference for discovering available keyboard controls.",
+      "Capped the menu-bar window height for smaller displays.",
+      "Added a compact footer and wrapped long Git branch names."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.16")
+  },
+  {
+    version: "v0.1.0-beta.15",
+    publishedAt: "2026-07-29T22:29:57Z",
+    summary: "Simplified Local project cards and reclaimed vertical space.",
+    changes: [
+      "Removed decorative project icons and service-count badges.",
+      "Moved the active Git branch beside the project name.",
+      "Aligned Local project and service content with the tighter provider-card spacing."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.15")
+  },
+  {
+    version: "v0.1.0-beta.14",
+    publishedAt: "2026-07-29T18:46:17Z",
+    summary: "Made the installed release version visible.",
+    changes: [
+      "Showed the exact installed PortDeck release version in the menu-bar footer."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.14")
+  },
+  {
+    version: "v0.1.0-beta.13",
+    publishedAt: "2026-07-29T17:48:05Z",
+    summary: "Added signed in-app update checks powered by Sparkle.",
+    changes: [
+      "Checked the signed PortDeck beta feed daily without automatically installing updates.",
+      "Added update availability in the menu-bar window and manual checks in Settings.",
+      "Kept system profiling disabled and verified the signed feed and update archive."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.13")
+  },
+  {
     version: "v0.1.0-beta.12",
     publishedAt: "2026-07-28T16:32:13Z",
     summary: "Improved PortDeck icon legibility across macOS.",

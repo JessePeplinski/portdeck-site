@@ -6,6 +6,22 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>PortDeck</title>
         <item>
+            <title>PortDeck 0.1.0-beta.17</title>
+            <pubDate>Thu, 30 Jul 2026 16:09:10 -0400</pubDate>
+            <link>https://portdeck.vercel.app/</link>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-beta.17</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.17
+
+- Makes provider customization more direct with drag-to-reorder controls while keeping Local fixed at the front.
+- Stabilizes provider reordering feedback so rows follow pointer movement predictably.
+- Shows how long each active Local development session has been running.
+]]></description>
+            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.17/PortDeck-0.1.0-beta.17-macos-arm64.dmg" length="37022107" type="application/octet-stream" sparkle:edSignature="ql15ylO48wckBGo81gnrFF+XEGzajCe19IkSaY5mxyUjKAZD/HA1knNE8T5zplD+I6IFbKrBl7UD1cv1z4qxDQ=="/>
+        </item>
+        <item>
             <title>PortDeck 0.1.0-beta.16</title>
             <pubDate>Thu, 30 Jul 2026 13:11:02 -0400</pubDate>
             <link>https://portdeck.vercel.app/</link>
@@ -38,23 +54,9 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
 ]]></description>
             <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.15/PortDeck-0.1.0-beta.15-macos-arm64.dmg" length="36939397" type="application/octet-stream" sparkle:edSignature="S9FDhtzrvcTXQcuPciB6SnFlsxHCLbYxd8Nx/rzfpvWJ/IeGtSM2GIF4zyMahfX2SSWYiXZ9rNOiivZEVsfaCw=="/>
         </item>
-        <item>
-            <title>PortDeck 0.1.0-beta.14</title>
-            <pubDate>Wed, 29 Jul 2026 14:43:24 -0400</pubDate>
-            <link>https://portdeck.vercel.app/</link>
-            <sparkle:version>14</sparkle:version>
-            <sparkle:shortVersionString>0.1.0-beta.14</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.14
-
-- Shows the exact installed PortDeck release version in the menu-bar footer.
-]]></description>
-            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.14/PortDeck-0.1.0-beta.14-macos-arm64.dmg" length="36935054" type="application/octet-stream" sparkle:edSignature="4TGRmNM5d/Kno6qCI4P4O7wh13dgX31tBFoQeZBMKyfHF/45eXo4Y781qsOPXui8AbfSP0DIJjI4CdrGdFKNBg=="/>
-        </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: PXSInkovmpfzYOovzK+RPVA6NqjrsPvu4592WCGNZAY8q38EIkGu1TvP2Mw9Aw5s03CCdHSlIcnU7pPWVza8DQ==
-length: 3812
+edSignature: W3vcD5gEPBbF2wBLAQhvOTnhrWmQX7WHwL8aqcArMnCbJ2GiQKaaX5aYOqkMQWciZaRx+nEabmQCwlKaPAjfCQ==
+length: 4008
 -->

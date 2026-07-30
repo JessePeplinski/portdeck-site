@@ -6,6 +6,23 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>PortDeck</title>
         <item>
+            <title>PortDeck 0.1.0-beta.16</title>
+            <pubDate>Thu, 30 Jul 2026 13:11:02 -0400</pubDate>
+            <link>https://portdeck.vercel.app/</link>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-beta.16</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.16
+
+- Adds keyboard navigation across provider tabs, including number-key shortcuts.
+- Adds an in-app shortcut reference for discovering available keyboard controls.
+- Keeps the menu-bar window usable on smaller displays by capping its height.
+- Improves dense layouts with a compact footer and wrapped long Git branch names.
+]]></description>
+            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.16/PortDeck-0.1.0-beta.16-macos-arm64.dmg" length="36989733" type="application/octet-stream" sparkle:edSignature="00qYTpqpHcCe5Y6OBP/mq6ZIklwbk7P8u0NZdB1I8uA0R9/3yspKefyK1NKRT30GvKG+eiNUQ8jzuusY5uhPAw=="/>
+        </item>
+        <item>
             <title>PortDeck 0.1.0-beta.15</title>
             <pubDate>Wed, 29 Jul 2026 18:28:30 -0400</pubDate>
             <link>https://portdeck.vercel.app/</link>
@@ -35,29 +52,9 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
 ]]></description>
             <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.14/PortDeck-0.1.0-beta.14-macos-arm64.dmg" length="36935054" type="application/octet-stream" sparkle:edSignature="4TGRmNM5d/Kno6qCI4P4O7wh13dgX31tBFoQeZBMKyfHF/45eXo4Y781qsOPXui8AbfSP0DIJjI4CdrGdFKNBg=="/>
         </item>
-        <item>
-            <title>PortDeck 0.1.0-beta.13</title>
-            <pubDate>Wed, 29 Jul 2026 12:54:22 -0400</pubDate>
-            <link>https://portdeck.vercel.app/</link>
-            <sparkle:version>13</sparkle:version>
-            <sparkle:shortVersionString>0.1.0-beta.13</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.13
-
-- Adds signed in-app update checks powered by Sparkle 2.9.4.
-- Checks the PortDeck beta feed once per day without automatically installing updates.
-- Shows a quiet **New version available** action in the menu-bar window.
-- Adds automatic-update preferences and **Check for Updates…** to Settings.
-- Keeps system profiling disabled and verifies both the signed feed and update archive before extraction.
-
-Development builds remain disconnected from the production update feed.
-]]></description>
-            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.13/PortDeck-0.1.0-beta.13-macos-arm64.dmg" length="36939140" type="application/octet-stream" sparkle:edSignature="O/KP7keLsj0FPhTXnVRU8d+qc134vDapzULW6ecQ4Es1XyAbJvbGZvtJgChorTH91vplOq2BzDnXcj5RnjAkDA=="/>
-        </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: J/dDFnY8Z2d1RJTqlU2+tIHC71JfdENQl3wqNjzI564wZGlrxzsQGy8+Ya6rfRTTWp3NUHihMhDevEPX5RYKDA==
-length: 3968
+edSignature: PXSInkovmpfzYOovzK+RPVA6NqjrsPvu4592WCGNZAY8q38EIkGu1TvP2Mw9Aw5s03CCdHSlIcnU7pPWVza8DQ==
+length: 3812
 -->

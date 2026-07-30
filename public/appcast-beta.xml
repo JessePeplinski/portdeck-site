@@ -6,6 +6,22 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>PortDeck</title>
         <item>
+            <title>PortDeck 0.1.0-beta.15</title>
+            <pubDate>Wed, 29 Jul 2026 18:28:30 -0400</pubDate>
+            <link>https://portdeck.vercel.app/</link>
+            <sparkle:version>15</sparkle:version>
+            <sparkle:shortVersionString>0.1.0-beta.15</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# PortDeck 0.1.0-beta.15
+
+- Simplifies Local project cards by removing decorative project icons and service-count badges.
+- Moves the active Git branch beside the project name and reduces duplicated vertical metadata.
+- Aligns Local project and service content with the tighter spacing used by provider cards.
+]]></description>
+            <enclosure url="https://github.com/JessePeplinski/portdeck/releases/download/v0.1.0-beta.15/PortDeck-0.1.0-beta.15-macos-arm64.dmg" length="36939397" type="application/octet-stream" sparkle:edSignature="S9FDhtzrvcTXQcuPciB6SnFlsxHCLbYxd8Nx/rzfpvWJ/IeGtSM2GIF4zyMahfX2SSWYiXZ9rNOiivZEVsfaCw=="/>
+        </item>
+        <item>
             <title>PortDeck 0.1.0-beta.14</title>
             <pubDate>Wed, 29 Jul 2026 14:43:24 -0400</pubDate>
             <link>https://portdeck.vercel.app/</link>
@@ -42,6 +58,6 @@ Development builds remain disconnected from the production update feed.
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: nFFKZn0cDBvREaad0E2w0/C6m9FSRiGtk6E9+b4kYBKqpuwfG2jLi1h6H/Zyux9LXipwEYUg0/sREs4zRcQJDg==
-length: 2785
+edSignature: J/dDFnY8Z2d1RJTqlU2+tIHC71JfdENQl3wqNjzI564wZGlrxzsQGy8+Ya6rfRTTWp3NUHihMhDevEPX5RYKDA==
+length: 3968
 -->

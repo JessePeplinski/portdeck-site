@@ -11,6 +11,19 @@ const releaseUrl = (version: string) =>
 
 export const betaReleases: BetaRelease[] = [
   {
+    version: "v0.1.0-beta.18",
+    publishedAt: "2026-10-02T13:23:51Z",
+    summary: "Fixed sustained CPU usage and bounded Local discovery resources.",
+    changes: [
+      "Fixed a provider-tab redraw loop that could cause sustained high CPU usage.",
+      "Prevented large helper output from stalling Local refreshes and stopped cancelled or unresponsive helpers.",
+      "Closed completed endpoint probes and added deadlines for slow responses.",
+      "Limited concurrent discovery inspections to reduce CPU and memory spikes.",
+      "Used more of the available screen height for the menu panel."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.18")
+  },
+  {
     version: "v0.1.0-beta.17",
     publishedAt: "2026-07-30T20:10:10Z",
     summary: "Made provider customization clearer and added Local session durations.",

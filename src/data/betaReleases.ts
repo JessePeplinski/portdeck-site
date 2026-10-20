@@ -11,6 +11,17 @@ const releaseUrl = (version: string) =>
 
 export const betaReleases: BetaRelease[] = [
   {
+    version: "v0.1.0-beta.19",
+    publishedAt: "2026-10-20T11:39:51Z",
+    summary: "Fixed local HTTPS links and identified development builds.",
+    changes: [
+      "Opened HTTPS services with the correct URL on any port, including services using self-signed development certificates.",
+      "Kept ordinary HTTP services working with bounded HTTPS detection requests.",
+      "Added a LOCAL badge to source-development builds, with the version shown on hover."
+    ],
+    releaseUrl: releaseUrl("v0.1.0-beta.19")
+  },
+  {
     version: "v0.1.0-beta.18",
     publishedAt: "2026-10-02T13:23:51Z",
     summary: "Fixed sustained CPU usage and bounded Local discovery resources.",
